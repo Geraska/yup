@@ -14,7 +14,7 @@ defmodule Books.Publisher do
 
   def changeset(publisher, params \\ %{}) do
     publisher
-    |> cast(params, [:pub_name, :city, :state, :country])
+    |> cast(params, [:pub_name, :city, :state, :country, :age])
     |> validate_inclusion(:age, 18..63)
   end
 end

@@ -17,8 +17,9 @@ defmodule Books.Author do
 
   def changeset(author, params \\ %{}) do
     author
-    |> cast(params, [:au_fname, :au_lname, :phone, :address, :city, :state, :zip])
+    |> cast(params, [:au_fname, :au_lname, :phone, :address, :city, :state, :zip, :age])
+    |> validate_required([:au_fname, :au_lname, :phone, :address, :city, :zip, :age])
     |> validate_length(:phone, min: 3, max: 12)
-    |> validate_inclusion(:age, 18..63)
+    |> validate_number(:age, min: 18, max: 63)
   end
 end
