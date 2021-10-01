@@ -3,9 +3,9 @@ defmodule Books.Royalty do
   import Ecto.Changeset
 
   schema "royalties" do
-    field :title_id, :id, belongs_to: :titles
-    field :advance, :float
-    field :toyalty_share, :float
+    field(:title_id, :id, belongs_to: :titles)
+    field(:advance, :float)
+    field(:toyalty_share, :float)
 
     timestamps()
   end
@@ -15,5 +15,4 @@ defmodule Books.Royalty do
     |> cast(params, [:title_id, :advance, :royalty_share])
     |> validate_required([:title_id, :advance, :royalty_share])
   end
-
 end

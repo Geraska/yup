@@ -1,4 +1,4 @@
-defmodule Books.TitleAuthors do
+defmodule Books.TitleAuthor do
   use Ecto.Schema
   import Ecto.Changeset
 

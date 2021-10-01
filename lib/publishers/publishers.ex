@@ -7,6 +7,7 @@ defmodule Books.Publisher do
     field(:city, :string, size: 15)
     field(:state, :string, size: 2)
     field(:country, :string, size: 15)
+    field :age, :integer, size: 2
 
     timestamps()
   end
@@ -14,6 +15,6 @@ defmodule Books.Publisher do
   def changeset(publisher, params \\ %{}) do
     publisher
     |> cast(params, [:pub_name, :city, :state, :country])
-    |> validate_required([:pub_name, :city, :country])
+    |> validate_inclusion(:age, 18..63)
   end
 end

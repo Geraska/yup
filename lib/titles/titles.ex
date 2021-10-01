@@ -13,10 +13,10 @@ defmodule Books.Title do
 
     timestamps()
   end
+
   def changeset(title, params \\ %{}) do
     title
     |> cast(params, [:title_name, :type, :pub_id, :pages, :sales, :pub_date, :contract])
     |> validate_required([:title_name, :type, :pub_id, :pages, :sales, :pub_date, :contract])
   end
-
 end

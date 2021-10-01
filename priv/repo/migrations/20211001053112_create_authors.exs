@@ -3,13 +3,14 @@ defmodule Yup.Repo.Migrations.CreateAuthors do
 
   def change do
     create table(:authorss) do
-      add :au_fname, :string
-      add :au_lname, :string
-      add :phone, :string
-      add :address, :string
-      add :city, :string
-      add :state, :string
-      add :zip, :string
+      add :au_fname, :string, size: 30
+      add :au_lname, :string, size: 30
+      add :phone, :string, size: 12
+      add :address, :string, size: 20
+      add :city, :string, size: 15
+      add :state, :string, size: 2
+      add :zip, :string, size: 5
+      add :age, :integer, size: 2
 
       timestamps()
     end
