@@ -10,16 +10,15 @@ defmodule Books.Author do
     field(:city, :string, size: 15)
     field(:state, :string, size: 2)
     field(:zip, :string, size: 5)
-    field(:age, :integer, size: 2)
 
     timestamps()
   end
 
   def changeset(author, params \\ %{}) do
     author
-    |> cast(params, [:au_fname, :au_lname, :phone, :address, :city, :state, :zip, :age])
-    |> validate_required([:au_fname, :au_lname, :phone, :address, :city, :zip, :age])
-    |> validate_length(:phone, min: 3, max: 12)
-    |> validate_number(:age, min: 18, max: 63)
+    |> cast(params, [:au_fname, :au_lname, :phone, :address, :city, :zip])
+    |> validate_required([:au_lname, :phone, :address, :city, :zip])
+    |> validate_format(:phone, ~r/\d{3}-\d{3}-\d{4}/)
+    |> validate_format(:state, ~r/[A-Z]/)
   end
 end

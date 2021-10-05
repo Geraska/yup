@@ -3,7 +3,7 @@ defmodule Yup.Repo.Migrations.Royalties do
 
   def change do
     create table(:royalties) do
-      add :title_id, :integer, belongs_to: :titles
+      add :title_id, references(:titles)
       add :advance, :float
       add :royalty_rate, :float
 

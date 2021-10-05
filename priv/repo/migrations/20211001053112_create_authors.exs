@@ -10,7 +10,6 @@ defmodule Yup.Repo.Migrations.CreateAuthors do
       add :city, :string, size: 15
       add :state, :string, size: 2
       add :zip, :string, size: 5
-      add :age, :integer, size: 2
 
       timestamps()
     end

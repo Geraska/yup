@@ -5,7 +5,7 @@ defmodule Yup.Repo.Migrations.CreateTitles do
     create table(:titles) do
       add :title_name, :string
       add :type, :string
-      add :pub_id, :integer, belongs_to: :publishers
+      add :pub_id, references(:publishers)
       add :pages, :integer
       add :price, :float
       add :sales, :integer
