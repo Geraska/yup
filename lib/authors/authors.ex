@@ -24,6 +24,21 @@ defmodule Books.Author do
     |> validate_format(:state, ~r/[A-Z]/)
   end
 
+  def insert_data do
+    author = [
+      %{
+        address: "Stepnaya St",
+        au_fname: "Arsylan",
+        au_lname: "Zhanissuly",
+        city: "Karaganda",
+        phone: "707-830-4340",
+        zip: "10000"
+      }
+    ]
+
+    Yup.Repo.insert_all(Author, author)
+  end
+
   def get_author_by_id(id) do
     if is_integer(id) do
       query =
